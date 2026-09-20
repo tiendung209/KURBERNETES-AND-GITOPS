@@ -19,5 +19,5 @@ spec:
       - name: order-api
         image: tiendung209/jobportal-backend:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
           name: http
