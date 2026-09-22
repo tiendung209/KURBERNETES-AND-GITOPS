@@ -19,4 +19,4 @@ spec:
         - configMapRef:
             name: order-service-config
         - secretRef:
-            name: order-service-secret
+            name: order-service-secret~
