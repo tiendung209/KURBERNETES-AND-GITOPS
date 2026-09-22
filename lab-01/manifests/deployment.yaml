@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order-api
-  namespace: letiendung
-  labels:
-    app: order-api
+  name: order-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: order-api
+      app: order-service
   template:
     metadata:
       labels:
-        app: order-api
+        app: order-service
     spec:
       containers:
-      - name: order-api
-        image: ledung209/jobportal-backend:v1
-        ports:
-        - containerPort: 80
-          name: http
+      - name: order-service
+        image: your-repo/order-service:latest
+        envFrom:
+        - configMapRef:
+            name: order-service-config
+        - secretRef:
+            name: order-service-secret
